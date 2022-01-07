@@ -1,0 +1,43 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <p class="text-primary fst-italic text-center">"{{aim}}"</p>
+            <h1 class="text-center">CREATE ACCOUNT</h1>
+            <form [formGroup]="registerForm" action="" class="" (ngSubmit)="register()">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" id="umane" name="uname" formControlName="uname" placeholder="Username">
+                    <label for="bk_uname">Username</label>
+                    <div *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&this.registerForm.get('uname')?.errors" class="error text-danger ms-3">Invalid username</div>
+                </div>
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" id="acno" name="acno" formControlName="acno" placeholder="Account Number">
+                    <label for="bk_acno">Account number</label>
+                    <div *ngIf="(this.registerForm.get('acno')?.touched||this.registerForm.get('acno')?.dirty)&&this.registerForm.get('acno')?.errors" class="error text-danger ms-3">Invalid Account Number</div>
+                </div>
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder="Email ID">
+                    <label for="bk_email">Email ID</label>
+                    <div *ngIf="(this.registerForm.get('email')?.touched||this.registerForm.get('email')?.dirty)&&this.registerForm.get('email')?.errors" class="error text-danger ms-3">Invalid Email ID</div>
+
+                </div>
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" id="phone" name="phone" formControlName="phone" placeholder="Phone number">
+                    <label for="bk_phn">Phone number</label>
+                    <div *ngIf="(this.registerForm.get('phone')?.touched||this.registerForm.get('phone')?.dirty)&&this.registerForm.get('phone')?.errors" class="error text-danger ms-3">Invalid Phone number</div>
+
+                </div>
+                <div class="form-floating mb-1">
+                    <input type="password" class="form-control" id="pswd" name="pswd" formControlName="pswd" placeholder="Password">
+                    <label for="bk_pass">Password</label>
+                    <div *ngIf="(this.registerForm.get('pswd')?.touched||this.registerForm.get('pswd')?.dirty)&&this.registerForm.get('pswd')?.errors" class="error text-danger ms-3">Week password</div>
+
+                </div>
+                <input type="submit" value="Register" class="btn btn-primary">
+                <!-- <button type="button" (click)="register()" class="btn btn-primary" onclick="bank.createAccount()">Create account</button> -->
+            </form>
+            Already have an account <a routerLink="">    Login</a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

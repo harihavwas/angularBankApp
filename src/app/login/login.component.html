@@ -1,0 +1,25 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <p class="text-primary fst-italic text-center">"{{aim}}"</p>
+            <h1 class="text-center">LOGIN</h1>
+            <form [formGroup]="loginForm" action="" (ngSubmit)="login() ">
+                <div class="form-floating mb-1">  
+                    <input type="text" class="form-control" formControlName="acno" name="account_number" id="bk_lg_acc" [placeholder]="accno">
+                    <label for="bk_lg_acc">Account Number</label>
+                    <div *ngIf="(this.loginForm.get('acno')?.touched||this.loginForm.get('acno')?.dirty)&&this.loginForm.get('acno')?.errors" class="error text-danger ms-3">Invalid Account Number</div>
+                </div>
+                <div class="form-floating mb-1">
+                    <input type="password" class="form-control" formControlName="pswd" name="password" id="bk_lg_pass" placeholder="Password">
+                    <label for="bk_lg_pass">Password</label>
+                    <div *ngIf="(this.loginForm.get('pswd')?.touched||this.loginForm.get('pswd')?.dirty)&&this.loginForm.get('pswd')?.errors" class="error text-danger ms-3">Week password</div>
+                </div>
+                <!-- <button class="btn btn-primary" type="button" (click)="login()" onclick="bank.login()">Login</button> -->
+                <input type="submit" class="btn btn-primary" value="Login">
+            </form>
+            Create new account <a routerLink="register"> Register</a>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
