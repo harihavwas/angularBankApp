@@ -8,7 +8,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  
   d_acno = ""
   d_amount = ""
   d_pswd = ""
@@ -20,20 +20,27 @@ export class DashboardComponent implements OnInit {
   depositeForm = this.fb.group(
     {
       d_acno: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      d_amount: ['', [Validators.required, Validators.pattern('[0-9]')]],
+      d_amount: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       d_pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
     }
   )
   withdrawForm = this.fb.group(
     {
       w_acno: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      w_amount: ['', [Validators.required, Validators.pattern('[0-9]')]],
+      w_amount: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       w_pswd: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
     }
   )
+  user = this.ds.curentUserName
+  bal = this.ds.currentBalance
+  
 
-  constructor(private ds: DataService, private fb: FormBuilder) { }
+  constructor(private ds: DataService, private fb: FormBuilder) { 
+  }
 
+  
+
+  
   ngOnInit(): void {
   }
 
